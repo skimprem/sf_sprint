@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pereval.wsgi.application'
+WSGI_APPLICATION = 'pereval_project.wsgi.application'
 
 
 # Database
