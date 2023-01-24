@@ -42,6 +42,6 @@ class PerevalSerializer(serializers.ModelSerializer):
 
         for image_data in images_data:
             image = Image.objects.create(**image_data)
-            PerevalImages(pereval_id=pereval.pk, image_id=image.pk)
+            PerevalImages(pereval=pereval, image=image)
 
         return pereval

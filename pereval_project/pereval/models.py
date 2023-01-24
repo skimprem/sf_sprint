@@ -41,5 +41,5 @@ class Pereval(models.Model):
     spring = models.CharField(max_length=2, choices=LEVELS, blank=True, default='')
 
 class PerevalImages(models.Model):
-    image_id = models.ForeignKey(Image, on_delete=models.CASCADE)
-    pereval_id = models.ForeignKey(Pereval, on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    pereval = models.ForeignKey(Pereval, on_delete=models.CASCADE)
