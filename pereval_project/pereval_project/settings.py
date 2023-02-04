@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
+FSTR_DB_HOST = str(os.getenv('FSTR_DB_HOST'))
+FSTR_DB_PORT = str(os.getenv('FSTR_DB_PORT'))
+FSTR_DB_LOGIN = str(os.getenv('FSTR_DB_LOGIN'))
+FSTR_DB_PASS = str(os.getenv('FSTR_DB_PASS'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o_90nyn&u=r9*=@8byiqvfv-&9jwyu_a*2g=ecd+5nb$9wq6&k'
+# move to .env
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,10 +91,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pereval',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'USER': FSTR_DB_LOGIN,
+        'PASSWORD': FSTR_DB_PASS,
+        'HOST': FSTR_DB_HOST,
+        'PORT': FSTR_DB_PORT,
     }
 }
 
