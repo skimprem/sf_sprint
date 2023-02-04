@@ -6,7 +6,9 @@ from .resources import *
 # Create your models here.
 
 class PerevalUser(models.Model):
-    phone = models.CharField(max_length=128, null=False, blank=False, unique=True)
+    # phone = models.CharField(max_length=128, null=False, blank=False,
+    # unique=True)
+    phone = PhoneNumberField(null=False, blank=False, unique=True)
     email = models.EmailField(null=False, blank=False, unique=True)
     firstname = models.CharField(max_length=255, default=None)
     lastname = models.CharField(max_length=255, default=None)

@@ -7,7 +7,7 @@ class CoordsSerializer(serializers.ModelSerializer):
         model = Coords
         fields = '__all__'
 
-class UserSeralizer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = PerevalUser
@@ -22,7 +22,7 @@ class ImageSerialize(serializers.ModelSerializer):
 class PerevalSerializer(serializers.ModelSerializer):
 
     coords = CoordsSerializer()
-    user = UserSeralizer()
+    user = UserSerializer()
     images = ImageSerialize(many=True)
 
     class Meta:
@@ -42,6 +42,8 @@ class PerevalSerializer(serializers.ModelSerializer):
 
         for image_data in images_data:
             image = Image.objects.create(**image_data)
-            PerevalImages(pereval=pereval, image=image)
+            PerevalImages.objects.create(pereval=pereval, image=image)
+        
+        pereval.save()
 
         return pereval

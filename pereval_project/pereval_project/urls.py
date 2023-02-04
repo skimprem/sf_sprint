@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from pereval import views
-from rest_framework import routers
+# from rest_framework import routers
+from rest_framework_nested import routers
 # from rest_framework_swagger.views import get_swagger_view
 from rest_framework.schemas import get_schema_view
 from django.views.generic import TemplateView
@@ -24,7 +25,8 @@ from django.views.generic import TemplateView
 # schema_view = get_swagger_view(title='Pastebin API')
 
 router = routers.DefaultRouter()
-router.register(r'perevals', views.PerevalViewset)
+router.register(r'perevals', views.PerevalViewset, basename='perevals')
+router.register(r'users', views.UserViewset, basename='users')
 
 urlpatterns = [
     path('api_schema/', get_schema_view(
