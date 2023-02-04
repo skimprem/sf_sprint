@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pereval',
     'phonenumber_field',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .serializers import *
 from .models import *
+from django_filters.rest_framework import DjangoFilterBackend
 
 # Create your views here.
 
@@ -13,11 +14,12 @@ class UserViewset(viewsets.ModelViewSet):
 class PerevalViewset(viewsets.ModelViewSet):
    queryset = Pereval.objects.all()
    serializer_class = PerevalSerializer 
+   filter_backends = [DjangoFilterBackend]
+   filterset_fields = ['user__email']
 
    def partial_update(self, request, *args, **kwargs):
       instance = self.get_object()
       if instance.status == 'ne':
-         print(instance.status)
          try:
             data = request.data
          

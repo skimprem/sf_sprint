@@ -25,8 +25,7 @@ from django.views.generic import TemplateView
 # schema_view = get_swagger_view(title='Pastebin API')
 
 router = routers.DefaultRouter()
-router.register(r'perevals', views.PerevalViewset, basename='perevals')
-router.register(r'users', views.UserViewset, basename='users')
+router.register(r'submitData', views.PerevalViewset, basename='submitData')
 
 urlpatterns = [
     path('api_schema/', get_schema_view(
