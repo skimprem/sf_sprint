@@ -28,7 +28,19 @@ class PerevalSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Pereval
-        fields = ['title', 'other_titles', 'beautyTitle', 'connect', 'status', 'user', 'coords', 'images']
+        fields = [
+            'title',
+            'other_titles', 
+            'beautyTitle',
+            'connect',
+            'status',
+            'user',
+            'coords',
+            'images',
+            'winter',
+            'spring',
+            'summer',
+            'autumn']
     
     def create(self, validated_data):
 
